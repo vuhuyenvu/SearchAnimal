@@ -25,3 +25,8 @@ Route::get('/respond', function () {
 Route::get('/detail', function () {
     return view('client.home.detail');
 });
+
+
+Route::get('/admin-dashboard', function () {
+    return view('admin.home.index');
+});
