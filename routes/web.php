@@ -30,3 +30,8 @@ Route::get('/detail', function () {
 Route::get('/admin-dashboard', function () {
     return view('admin.home.index');
 });
+
+
+Route::get('/login-user', function () {
+    return view('login');
+});
