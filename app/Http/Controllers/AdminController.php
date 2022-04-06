@@ -19,11 +19,71 @@ class AdminController extends Controller
     //
     public function bo(){
         $ds_bo = DB::table('bo')->get();
-
-        $mana = view('admin.home.bo')->with('ds_bo',$ds_bo);
+        $ma_bo_moi_nhat = DB::table('bo')->OrderBy('bo_ma','desc')->first();
+        $ma_bo_moi_nhat->bo_ma++;
+        $mana = view('admin.home.bo')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',$ma_bo_moi_nhat->bo_ma);
         return view('admin.template.master')->with('admin.home.bo',$mana);
     }
 
+    public function them_bo(Request $request){
+        $bo = array();
+        $bo['bo_ma'] = $request->get('bo_ma');
+        $bo['bo_ten'] = $request->get('bo_ten');
+
+        if(DB::table('bo')->insert($bo)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/bo');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/bo');
+        }
+        
+    }
+
+    public function sua_bo(Request $request){
+        $bo = array();
+        $bo['bo_ten'] = $request->get('bo_ten');
+
+        if(DB::table('bo')->where('bo_ma',$request->get('bo_ma'))->insert($bo)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/bo');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/bo');
+        }
+        
+    }
+    public function xoa_bo(Request $request){
+
+        if(DB::table('bo')->where('bo_ma',$request->get('bo_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/bo');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/bo');
+        }
+        
+    }
+
+    public function tim_kiem_bo(Request $request){
+        $tu_khoa = $request->get('timbo');
+        if($tu_khoa){
+            $ds_bo = DB::table('bo')
+            ->where('bo_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('bo_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bo = DB::table('bo')->get();
+        }
+        $ma_bo_moi_nhat = DB::table('bo')->OrderBy('bo_ma','desc')->first();
+        $ma_bo_moi_nhat->bo_ma++;
+        $mana = view('admin.home.bo')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',$ma_bo_moi_nhat->bo_ma);
+        return view('admin.template.master')->with('admin.home.bo',$mana);
+    }
+    
     public function dia_diem(){
         $ds_diadiem = DB::table('diadiem')->get();
 
