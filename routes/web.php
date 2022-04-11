@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('client.home.index');
 });
@@ -39,6 +41,12 @@ Route::get('/login-user', function () {
 
 //Admin routes
 Route::get('/bo','App\Http\Controllers\AdminController@bo');
+Route::post('/them-bo','App\Http\Controllers\AdminController@them_bo');
+Route::post('/sua-bo','App\Http\Controllers\AdminController@sua_bo');
+Route::post('/xoa-bo','App\Http\Controllers\AdminController@xoa_bo');
+Route::POST('/tim-kiem-bo','App\Http\Controllers\AdminController@tim_kiem_bo');
+
+
 
 Route::get('/dia-diem','App\Http\Controllers\AdminController@dia_diem');
 
@@ -47,6 +55,8 @@ Route::get('/ho','App\Http\Controllers\AdminController@ho');
 Route::get('/gioi', 'App\Http\Controllers\AdminController@gioi');
 
 Route::get('/lop', 'App\Http\Controllers\AdminController@lop');
+
+
 
 Route::get('/nganh', function () {
     return view('nganh');

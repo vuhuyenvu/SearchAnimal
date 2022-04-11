@@ -40,7 +40,7 @@
                                     <th class="serial">#</th>
                                     <th>Mã Lớp</th>
                                     <th>Tên Lớp</th>
-                                    <th></th>
+                                    <th>Hành Động</th>
                                 </tr>
                             </thead>
                             <tbody>
