@@ -23,6 +23,7 @@
      <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
         @include('admin.template.header')
+        
         @yield('content')
 
         <div class="clearfix"></div>
