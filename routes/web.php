@@ -46,18 +46,40 @@ Route::post('/sua-bo','App\Http\Controllers\AdminController@sua_bo');
 Route::post('/xoa-bo','App\Http\Controllers\AdminController@xoa_bo');
 Route::POST('/tim-kiem-bo','App\Http\Controllers\AdminController@tim_kiem_bo');
 
-
-
-Route::get('/dia-diem','App\Http\Controllers\AdminController@dia_diem');
+Route::get('/diadiem','App\Http\Controllers\AdminController@diadiem');
+Route::post('/them-diadiem','App\Http\Controllers\AdminController@them_diadiem');
+Route::post('/sua-diadiem','App\Http\Controllers\AdminController@sua_diadiem');
+Route::post('/xoa-diadiem','App\Http\Controllers\AdminController@xoa_diadiem');
+Route::POST('/tim-kiem-diadiem','App\Http\Controllers\AdminController@tim_kiem_diadiem');
 
 Route::get('/ho','App\Http\Controllers\AdminController@ho');
+Route::post('/them-ho','App\Http\Controllers\AdminController@them_ho');
+Route::post('/sua-ho','App\Http\Controllers\AdminController@sua_ho');
+Route::post('/xoa-ho','App\Http\Controllers\AdminController@xoa_ho');
+Route::POST('/tim-kiem-ho','App\Http\Controllers\AdminController@tim_kiem_ho');
 
 Route::get('/gioi', 'App\Http\Controllers\AdminController@gioi');
+Route::post('/them-gioi','App\Http\Controllers\AdminController@them_gioi');
+Route::post('/sua-gioi','App\Http\Controllers\AdminController@sua_gioi');
+Route::post('/xoa-gioi','App\Http\Controllers\AdminController@xoa_gioi');
+Route::POST('/tim-kiem-gioi','App\Http\Controllers\AdminController@tim_kiem_gioi');
 
 Route::get('/lop', 'App\Http\Controllers\AdminController@lop');
+Route::post('/them-lop','App\Http\Controllers\AdminController@them_lop');
+Route::post('/sua-lop','App\Http\Controllers\AdminController@sua_lop');
+Route::post('/xoa-lop','App\Http\Controllers\AdminController@xoa_lop');
+Route::POST('/tim-kiem-lop','App\Http\Controllers\AdminController@tim_kiem_lop');
 
 
+Route::get('/nganh', 'App\Http\Controllers\AdminController@nganh');
+Route::post('/them-nganh','App\Http\Controllers\AdminController@them_nganh');
+Route::post('/sua-nganh','App\Http\Controllers\AdminController@sua_nganh');
+Route::post('/xoa-nganh','App\Http\Controllers\AdminController@xoa_nganh');
+Route::POST('/tim-kiem-nganh','App\Http\Controllers\AdminController@tim_kiem_nganh');
 
-Route::get('/nganh', function () {
-    return view('nganh');
-});
+Route::get('/tinhtrangmauvat', 'App\Http\Controllers\AdminController@tinhtrangmauvat');
+Route::post('/them-tinhtrangmauvat','App\Http\Controllers\AdminController@them_tinhtrangmauvat');
+Route::post('/sua-tinhtrangmauvat','App\Http\Controllers\AdminController@sua_tinhtrangmauvat');
+Route::post('/xoa-tinhtrangmauvat','App\Http\Controllers\AdminController@xoa_tinhtrangmauvat');
+Route::POST('/tim-kiem-tinhtrangmauvat','App\Http\Controllers\AdminController@tim_kiem_tinhtrangmauvat');
+

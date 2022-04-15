@@ -12,13 +12,13 @@
                          aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Quản Lý</a>
                      <ul class="sub-menu children dropdown-menu">
                          <li><i class="fa fa-id-badge"></i><a href="{{URL::to('/bo')}}">Bộ</a></li>
-                         <li><i class="fa fa-bars"></i><a href="{{URL::to('/dia-diem')}}">Địa Điểm</a></li>
+                         <li><i class="fa fa-bars"></i><a href="{{URL::to('/diadiem')}}">Địa Điểm</a></li>
 
                          <li><i class="fa fa-id-card-o"></i><a href="{{URL::to('/ho')}}">Họ</a></li>
                         <li><i class="fa fa-exclamation-triangle"></i><a href="{{URL::to('/gioi')}}">Giới</a></li>
                          <li><i class="fa fa-spinner"></i><a href="{{URL::to('/lop')}}">Lớp</a></li>
                          <li><i class="fa fa-fire"></i><a href="{{URL::to('/nganh')}}">Ngành</a></li>
-                         <li><i class="fa fa-book"></i><a href="{{URL::to('/tinh-trang-mau-vat')}}">Tình Trạng Mẫu Vật</a></li>
+                         <li><i class="fa fa-book"></i><a href="{{URL::to('/tinhtrangmauvat')}}">Tình Trạng Mẫu Vật</a></li>
                      </ul>
                  </li>
                  <li class="menu-item-has-children dropdown">
