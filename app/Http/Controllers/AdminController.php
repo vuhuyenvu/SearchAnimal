@@ -90,20 +90,20 @@ class AdminController extends Controller
     
     public function diadiem(){
         $ds_diadiem = DB::table('diadiem')->get();
-        $ma_diadiem_moi_nhat = DB::table('diadiem')->OrderBy('diadiem_ma','desc')->first();
+        $ma_diadiem_moi_nhat = DB::table('diadiem')->OrderBy('dd_ma','desc')->first();
         $cnt_diadiem_ma = DB::table('diadiem')->count();
         if($cnt_diadiem_ma == 0){
             $mana = view('admin.home.diadiem')->with('ds_diadiem',$ds_diadiem)->with('ma_diadiem_moi_nhat',1);
         }else{
-            $mana = view('admin.home.diadiem')->with('ds_diadiem',$ds_diadiem)->with('ma_diadiem_moi_nhat',++$ma_diadiem_moi_nhat->diadiem_ma);
+            $mana = view('admin.home.diadiem')->with('ds_diadiem',$ds_diadiem)->with('ma_diadiem_moi_nhat',++$ma_diadiem_moi_nhat->dd_ma);
         }
         return view('admin.template.master')->with('admin.home.dia_diem',$mana);
     }
 
     public function them_diadiem(Request $request){
         $diadiem = array();
-        $diadiem['diadiem_ma'] = $request->get('diadiem_ma');
-        $diadiem['diadiem_ten'] = $request->get('diadiem_ten');
+        $diadiem['dd_ma'] = $request->get('diadiem_ma');
+        $diadiem['dd_ten'] = $request->get('diadiem_ten');
 
         if(DB::table('diadiem')->insert($diadiem)){
             Session::put('message','Thêm thành công');
@@ -117,9 +117,9 @@ class AdminController extends Controller
     }
     public function sua_diadiem(Request $request){
         $dia_diem = array();
-        $dia_diem['diadiem_ten'] = $request->get('diadiem_ten');
+        $dia_diem['dd_ten'] = $request->get('diadiem_ten');
 
-        if(DB::table('diadiem')->where('diadiem_ma',$request->get('diadiem_ma'))->update($diadiem)){
+        if(DB::table('diadiem')->where('dd_ma',$request->get('diadiem_ma'))->update($dia_diem)){
             Session::put('message','Sửa thành công');
             return Redirect::to('/diadiem');
         }
@@ -132,7 +132,7 @@ class AdminController extends Controller
 
     public function xoa_diadiem(Request $request){
 
-        if(DB::table('diadiem')->where('diadiem_ma',$request->get('diadiem_ma'))->delete()){
+        if(DB::table('diadiem')->where('dd_ma',$request->get('diadiem_ma'))->delete()){
             Session::put('message','Xóa thành công');
             return Redirect::to('/diadiem');
         }
@@ -444,20 +444,20 @@ class AdminController extends Controller
 
     public function tinhtrangmauvat(){
         $ds_tinhtrangmauvat = DB::table('tinhtrangmauvat')->get();
-        $ma_tinhtrangmauvat_moi_nhat = DB::table('tinhtrangmauvat')->OrderBy('tinhtrangmauvat_ma','desc')->first();
+        $ma_tinhtrangmauvat_moi_nhat = DB::table('tinhtrangmauvat')->OrderBy('ttmv_ma','desc')->first();
         $cnt_tinhtrangmauvat_ma = DB::table('tinhtrangmauvat')->count();
         if($cnt_tinhtrangmauvat_ma == 0){
             $mana = view('admin.home.tinhtrangmauvat')->with('ds_tinhtrangmauvat',$ds_tinhtrangmauvat)->with('ma_tinhtrangmauvat_moi_nhat',1);
         }else{
-            $mana = view('admin.home.tinhtrangmauvat')->with('ds_tinhtrangmauvat',$ds_tinhtrangmauvat)->with('ma_tinhtrangmauvat_moi_nhat',++$ma_tinhtrangmauvat_moi_nhat->tinhtrangmauvat_ma);
+            $mana = view('admin.home.tinhtrangmauvat')->with('ds_tinhtrangmauvat',$ds_tinhtrangmauvat)->with('ma_tinhtrangmauvat_moi_nhat',++$ma_tinhtrangmauvat_moi_nhat->ttmv_ma);
         }
         return view('admin.template.master')->with('admin.home.tinhtrangmauvat',$mana);
     }
 
     public function them_tinhtrangmauvat(Request $request){
         $tinhtrangmauvat = array();
-        $tinhtrangmauvat['tinhtrangmauvat_ma'] = $request->get('tinhtrangmauvat_ma');
-        $tinhtrangmauvat['tinhtrangmauvat_ten'] = $request->get('tinhtrangmauvat_ten');
+        $tinhtrangmauvat['ttmv_ma'] = $request->get('tinhtrangmauvat_ma');
+        $tinhtrangmauvat['ttmv_ten'] = $request->get('tinhtrangmauvat_ten');
 
         if(DB::table('tinhtrangmauvat')->insert($tinhtrangmauvat)){
             Session::put('message','Thêm thành công');
@@ -472,9 +472,9 @@ class AdminController extends Controller
 
     public function sua_tinhtrangmauvat(Request $request){
         $tinhtrangmauvat = array();
-        $tinhtrangmauvat['tinhtrangmauvat_ten'] = $request->get('tinhtrangmauvat_ten');
+        $tinhtrangmauvat['ttmv_ten'] = $request->get('tinhtrangmauvat_ten');
 
-        if(DB::table('tinhtrangmauvat')->where('tinhtrangmauvat_ma',$request->get('tinhtrangmauvat_ma'))->update($tinhtrangmauvat)){
+        if(DB::table('tinhtrangmauvat')->where('ttmv_ma',$request->get('tinhtrangmauvat_ma'))->update($tinhtrangmauvat)){
             Session::put('message','Sửa thành công');
             return Redirect::to('/tinhtrangmauvat');
         }
@@ -486,7 +486,7 @@ class AdminController extends Controller
     }
     public function xoa_tinhtrangmauvat(Request $request){
 
-        if(DB::table('tinhtrangmauvat')->where('tinhtrangmauvat_ma',$request->get('tinhtrangmauvat_ma'))->delete()){
+        if(DB::table('tinhtrangmauvat')->where('ttmv_ma',$request->get('tinhtrangmauvat_ma'))->delete()){
             Session::put('message','Xóa thành công');
             return Redirect::to('/tinhtrangmauvat');
         }
@@ -501,15 +501,292 @@ class AdminController extends Controller
         $tu_khoa = $request->get('timtinhtrangmauvat');
         if($tu_khoa){
             $ds_tinhtrangmauvat = DB::table('tinhtrangmauvat')
-            ->where('tinhtrangmauvat_ma','like','%'.$tu_khoa.'%')
-            ->orWhere('tinhtrangmauvat_ten','like','%'.$tu_khoa.'%')->get();
+            ->where('ttmv_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('ttmv_ten','like','%'.$tu_khoa.'%')->get();
         }
         else{
             $ds_tinhtrangmauvat = DB::table('tinhtrangmauvat')->get();
         }
-        $ma_tinhtrangmauvat_moi_nhat = DB::table('tinhtrangmauvat')->OrderBy('tinhtrangmauvat_ma','desc')->first();
-        $ma_tinhtrangmauvat_moi_nhat->tinhtrangmauvat_ma++;
-        $mana = view('admin.home.tinhtrangmauvat')->with('ds_tinhtrangmauvat',$ds_tinhtrangmauvat)->with('ma_tinhtrangmauvat_moi_nhat',$ma_tinhtrangmauvat_moi_nhat->tinhtrangmauvat_ma);
+        $ma_tinhtrangmauvat_moi_nhat = DB::table('tinhtrangmauvat')->OrderBy('ttmv_ma','desc')->first();
+        $ma_tinhtrangmauvat_moi_nhat->ttmv_ma++;
+        $mana = view('admin.home.tinhtrangmauvat')->with('ds_tinhtrangmauvat',$ds_tinhtrangmauvat)->with('ma_tinhtrangmauvat_moi_nhat',$ma_tinhtrangmauvat_moi_nhat->ttmv_ma);
         return view('admin.template.master')->with('admin.home.tinhtrangmauvat',$mana);
     }
+
+    public function bao_ton_theo_vn(){
+        $ds_bttvn = DB::table('baotontheovn')->get();
+        $ma_bttvn_moi = DB::table('baotontheovn')->OrderBy('bt_ma','desc')->first();
+        $cnt_bttvn = DB::table('baotontheovn')->count();
+        if($cnt_bttvn == 0){
+            $mana = view('admin.home.baotontheovn')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',1);
+        }else{
+            $mana = view('admin.home.baotontheovn')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',++$ma_bttvn_moi->bt_ma);
+        }
+        return view('admin.template.master')->with('admin.home.baotontheovn',$mana);
+    }
+
+    public function them_bao_ton_theo_vn(Request $request){
+        $bt = array();
+        $bt['bt_ma'] = $request->get('bt_ma');
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheovn')->insert($bt)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/bao-ton-theo-vn');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/bao-ton-theo-vn');
+        }
+    }
+
+    public function sua_bao_ton_theo_vn(Request $request){
+        $bt = array();
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheovn')->where('bt_ma',$request->get('bt_ma'))->update($bt)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/bao-ton-theo-vn');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/bao-ton-theo-vn');
+        }
+    }
+
+    public function xoa_bao_ton_theo_vn(Request $request){
+        if(DB::table('baotontheovn')->where('bt_ma',$request->get('bt_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/bao-ton-theo-vn');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/bao-ton-theo-vn');
+        }
+    }
+
+    public function tim_kiem_bao_ton_theo_vn(Request $request){
+        $tu_khoa = $request->get('tim_bt');
+        if($tu_khoa){
+            $ds_bt = DB::table('baotontheovn')
+            ->where('bt_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('bt_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bt = DB::table('baotontheovn')->get();
+        }
+        $ma_bttvn_moi = DB::table('baotontheovn')->OrderBy('bt_ma','desc')->first();
+        
+        $mana = view('admin.home.baotontheovn')->with('ds_bttvn',$ds_bt)->with('ma_bttvn_moi',$ma_bttvn_moi->bt_ma++);
+        return view('admin.template.master')->with('admin.home.baotontheovn',$mana);
+    }
+
+    
+    public function bao_ton_theo_nghi_dinh(){
+        $ds_bttvn = DB::table('baotontheonghidinh')->get();
+        $ma_bttvn_moi = DB::table('baotontheonghidinh')->OrderBy('bt_ma','desc')->first();
+        $cnt_bttvn = DB::table('baotontheonghidinh')->count();
+        if($cnt_bttvn == 0){
+            $mana = view('admin.home.baotontheonghidinh')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',1);
+        }else{
+            $mana = view('admin.home.baotontheonghidinh')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',++$ma_bttvn_moi->bt_ma);
+        }
+        return view('admin.template.master')->with('admin.home.baotontheonghidinh',$mana);
+    }
+
+    public function them_bao_ton_theo_nghi_dinh(Request $request){
+        $bt = array();
+        $bt['bt_ma'] = $request->get('bt_ma');
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheonghidinh')->insert($bt)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/bao-ton-theo-nghi-dinh');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/bao-ton-theo-nghi-dinh');
+        }
+    }
+
+    public function sua_bao_ton_theo_nghi_dinh(Request $request){
+        $bt = array();
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheonghidinh')->where('bt_ma',$request->get('bt_ma'))->update($bt)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/bao-ton-theo-nghi-dinh');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/bao-ton-theo-nghi-dinh');
+        }
+    }
+
+    public function xoa_bao_ton_theo_nghi_dinh(Request $request){
+        if(DB::table('baotontheonghidinh')->where('bt_ma',$request->get('bt_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/bao-ton-theo-nghi-dinh');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/bao-ton-theo-nghi-dinh');
+        }
+    }
+
+    public function tim_kiem_bao_ton_theo_nghi_dinh(Request $request){
+        $tu_khoa = $request->get('tim_bt');
+        if($tu_khoa){
+            $ds_bt = DB::table('baotontheonghidinh')
+            ->where('bt_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('bt_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bt = DB::table('baotontheonghidinh')->get();
+        }
+        $ma_bttvn_moi = DB::table('baotontheonghidinh')->OrderBy('bt_ma','desc')->first();
+        
+        $mana = view('admin.home.baotontheonghidinh')->with('ds_bttvn',$ds_bt)->with('ma_bttvn_moi',$ma_bttvn_moi->bt_ma++);
+        return view('admin.template.master')->with('admin.home.baotontheonghidinh',$mana);
+    }
+
+
+    public function bao_ton_theo_uicn(){
+        $ds_bttvn = DB::table('baotontheouicn')->get();
+        $ma_bttvn_moi = DB::table('baotontheouicn')->OrderBy('bt_ma','desc')->first();
+        $cnt_bttvn = DB::table('baotontheouicn')->count();
+        if($cnt_bttvn == 0){
+            $mana = view('admin.home.baotontheouicn')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',1);
+        }else{
+            $mana = view('admin.home.baotontheouicn')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',++$ma_bttvn_moi->bt_ma);
+        }
+        return view('admin.template.master')->with('admin.home.baotontheouicn',$mana);
+    }
+
+    public function them_bao_ton_theo_uicn(Request $request){
+        $bt = array();
+        $bt['bt_ma'] = $request->get('bt_ma');
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheouicn')->insert($bt)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/bao-ton-theo-uicn');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/bao-ton-theo-uicn');
+        }
+    }
+
+    public function sua_bao_ton_theo_uicn(Request $request){
+        $bt = array();
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheouicn')->where('bt_ma',$request->get('bt_ma'))->update($bt)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/bao-ton-theo-uicn');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/bao-ton-theo-uicn');
+        }
+    }
+
+    public function xoa_bao_ton_theo_uicn(Request $request){
+        if(DB::table('baotontheouicn')->where('bt_ma',$request->get('bt_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/bao-ton-theo-uicn');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/bao-ton-theo-uicn');
+        }
+    }
+
+    public function tim_kiem_bao_ton_theo_uicn(Request $request){
+        $tu_khoa = $request->get('tim_bt');
+        if($tu_khoa){
+            $ds_bt = DB::table('baotontheouicn')
+            ->where('bt_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('bt_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bt = DB::table('baotontheouicn')->get();
+        }
+        $ma_bttvn_moi = DB::table('baotontheouicn')->OrderBy('bt_ma','desc')->first();
+        
+        $mana = view('admin.home.baotontheouicn')->with('ds_bttvn',$ds_bt)->with('ma_bttvn_moi',$ma_bttvn_moi->bt_ma++);
+        return view('admin.template.master')->with('admin.home.baotontheouicn',$mana);
+    }
+
+
+    public function bao_ton_theo_cites(){
+        $ds_bttvn = DB::table('baotontheocites')->get();
+        $ma_bttvn_moi = DB::table('baotontheocites')->OrderBy('bt_ma','desc')->first();
+        $cnt_bttvn = DB::table('baotontheocites')->count();
+        if($cnt_bttvn == 0){
+            $mana = view('admin.home.baotontheocites')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',1);
+        }else{
+            $mana = view('admin.home.baotontheocites')->with('ds_bttvn',$ds_bttvn)->with('ma_bttvn_moi',++$ma_bttvn_moi->bt_ma);
+        }
+        return view('admin.template.master')->with('admin.home.baotontheocites',$mana);
+    }
+
+    public function them_bao_ton_theo_cites(Request $request){
+        $bt = array();
+        $bt['bt_ma'] = $request->get('bt_ma');
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheocites')->insert($bt)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/bao-ton-theo-cites');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/bao-ton-theo-cites');
+        }
+    }
+
+    public function sua_bao_ton_theo_cites(Request $request){
+        $bt = array();
+        $bt['bt_ten'] = $request->get('bt_ten');
+
+        if(DB::table('baotontheocites')->where('bt_ma',$request->get('bt_ma'))->update($bt)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/bao-ton-theo-cites');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/bao-ton-theo-cites');
+        }
+    }
+
+    public function xoa_bao_ton_theo_cites(Request $request){
+        if(DB::table('baotontheocites')->where('bt_ma',$request->get('bt_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/bao-ton-theo-cites');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/bao-ton-theo-cites');
+        }
+    }
+
+    public function tim_kiem_bao_ton_theo_cites(Request $request){
+        $tu_khoa = $request->get('tim_bt');
+        if($tu_khoa){
+            $ds_bt = DB::table('baotontheocites')
+            ->where('bt_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('bt_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bt = DB::table('baotontheocites')->get();
+        }
+        $ma_bttvn_moi = DB::table('baotontheocites')->OrderBy('bt_ma','desc')->first();
+        
+        $mana = view('admin.home.baotontheocites')->with('ds_bttvn',$ds_bt)->with('ma_bttvn_moi',$ma_bttvn_moi->bt_ma++);
+        return view('admin.template.master')->with('admin.home.baotontheocites',$mana);
+    }
+
+    
 }

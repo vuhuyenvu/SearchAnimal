@@ -25,9 +25,10 @@
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                          aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Quản Lý Bảo Tồn</a>
                      <ul class="sub-menu children dropdown-menu">
-                         <li><i class="fa fa-table"></i><a href="tables-basic.html">Bảo Tồn Theo Việt Nam</a></li>
-                         <li><i class="fa fa-table"></i><a href="tables-data.html">Bảo Tồn Theo Nghị Định</a></li>
-                         <li><i class="fa fa-table"></i><a href="tables-data.html">Bảo Tồn Theo UICN</a></li>
+                         <li><i class="fa fa-table"></i><a href="{{URL::to('/bao-ton-theo-vn')}}">Bảo Tồn Theo Việt Nam</a></li>
+                         <li><i class="fa fa-table"></i><a href="{{URL::to('/bao-ton-theo-nghi-dinh')}}">Bảo Tồn Theo Nghị Định</a></li>
+                         <li><i class="fa fa-table"></i><a href="{{URL::to('/bao-ton-theo-uicn')}}">Bảo Tồn Theo UICN</a></li>
+                         <li><i class="fa fa-table"></i><a href="{{URL::to('/bao-ton-theo-cites')}}">Bảo Tồn Theo CITES</a></li>
                      </ul>
                  </li>
                  <li class="menu-item-has-children dropdown">

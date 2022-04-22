@@ -83,3 +83,27 @@ Route::post('/sua-tinhtrangmauvat','App\Http\Controllers\AdminController@sua_tin
 Route::post('/xoa-tinhtrangmauvat','App\Http\Controllers\AdminController@xoa_tinhtrangmauvat');
 Route::POST('/tim-kiem-tinhtrangmauvat','App\Http\Controllers\AdminController@tim_kiem_tinhtrangmauvat');
 
+Route::get('/bao-ton-theo-vn', 'App\Http\Controllers\AdminController@bao_ton_theo_vn');
+Route::post('/them-bao-ton-theo-vn', 'App\Http\Controllers\AdminController@them_bao_ton_theo_vn');
+Route::post('/sua-bao-ton-theo-vn', 'App\Http\Controllers\AdminController@sua_bao_ton_theo_vn');
+Route::post('/xoa-bao-ton-theo-vn', 'App\Http\Controllers\AdminController@xoa_bao_ton_theo_vn');
+Route::post('/tim-kiem-bao-ton-theo-vn', 'App\Http\Controllers\AdminController@tim_kiem_bao_ton_theo_vn');
+
+Route::get('/bao-ton-theo-nghi-dinh', 'App\Http\Controllers\AdminController@bao_ton_theo_nghi_dinh');
+Route::post('/them-bao-ton-theo-nghi-dinh', 'App\Http\Controllers\AdminController@them_bao_ton_theo_nghi_dinh');
+Route::post('/sua-bao-ton-theo-nghi-dinh', 'App\Http\Controllers\AdminController@sua_bao_ton_theo_nghi_dinh');
+Route::post('/xoa-bao-ton-theo-nghi-dinh', 'App\Http\Controllers\AdminController@xoa_bao_ton_theo_nghi_dinh');
+Route::post('/tim-kiem-bao-ton-theo-nghi-dinh', 'App\Http\Controllers\AdminController@tim_kiem_bao_ton_theo_nghi_dinh');
+
+Route::get('/bao-ton-theo-uicn', 'App\Http\Controllers\AdminController@bao_ton_theo_uicn');
+Route::post('/them-bao-ton-theo-uicn', 'App\Http\Controllers\AdminController@them_bao_ton_theo_uicn');
+Route::post('/sua-bao-ton-theo-uicn', 'App\Http\Controllers\AdminController@sua_bao_ton_theo_uicn');
+Route::post('/xoa-bao-ton-theo-uicn', 'App\Http\Controllers\AdminController@xoa_bao_ton_theo_uicn');
+Route::post('/tim-kiem-bao-ton-theo-uicn', 'App\Http\Controllers\AdminController@tim_kiem_bao_ton_theo_uicn');
+
+Route::get('/bao-ton-theo-cites', 'App\Http\Controllers\AdminController@bao_ton_theo_cites');
+Route::post('/them-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@them_bao_ton_theo_cites');
+Route::post('/sua-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@sua_bao_ton_theo_cites');
+Route::post('/xoa-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@xoa_bao_ton_theo_cites');
+Route::post('/tim-kiem-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@tim_kiem_bao_ton_theo_cites');
+

@@ -135,7 +135,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Quản Lý ttmv</h1>
+                        <h1>Quản Lý Tình Trạng Bảo Mật</h1>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Quản Lý</a></li>
-                            <li class="active">ttmv</li>
+                            <li class="active">Tình Trạng Bảo Mật</li>
                         </ol>
                     </div>
                 </div>
@@ -159,9 +159,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Danh Sách ttmv</strong>
+                        <strong class="card-title">Danh Sách Tình Trạng Bảo Mật</strong>
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#themtinhtrangmauvat"
-                            style="margin-left:80%;">Thêm ttmv</button>
+                            style="margin-left:80%;">Thêm TTBM</button>
                     </div>
                     <form method="post"  action="{{URL::to('tim-kiem-tinhtrangmauvat')}}" class="form-horizontal">
                         <div class="row form-group">
@@ -185,8 +185,8 @@
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
-                                    <th>Mã ttmv</th>
-                                    <th>Tên ttmv</th>
+                                    <th>Mã TTBM</th>
+                                    <th>Tên TTBM</th>
                                     <th>Hành Động</th>
                                 </tr>
                             </thead>
@@ -195,8 +195,8 @@
                                 @foreach($ds_tinhtrangmauvat as $tinhtrangmauvat)
                                 <tr>
                                     <td class="serial"><?php echo $i++; ?>.</td>
-                                    <td> {{$tinhtrangmauvat->tinhtrangmauvat_ma}} </td>
-                                    <td>{{$tinhtrangmauvat->tinhtrangmauvat_ten}}</td>
+                                    <td> {{$tinhtrangmauvat->ttmv_ma}} </td>
+                                    <td>{{$tinhtrangmauvat->ttmv_ten}}</td>
                                     <td><a href="" class="btn btn-primary btn-sm" data-toggle="modal"
                                             data-target="#suatinhtrangmauvat" onclick="sua_tinhtrangmauvat()">Sửa</a> <a href=""
                                             class="btn btn-danger btn-sm" data-toggle="modal" data-target="#xoatinhtrangmauvat"
