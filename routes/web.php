@@ -33,5 +33,21 @@ Route::get('/admin-dashboard', function () {
 
 
 Route::get('/login-user', function () {
+
     return view('login');
+});
+
+//Admin routes
+Route::get('/bo','App\Http\Controllers\AdminController@bo');
+
+Route::get('/dia-diem','App\Http\Controllers\AdminController@dia_diem');
+
+Route::get('/ho','App\Http\Controllers\AdminController@ho');
+
+Route::get('/gioi', 'App\Http\Controllers\AdminController@gioi');
+
+Route::get('/lop', 'App\Http\Controllers\AdminController@lop');
+
+Route::get('/nganh', function () {
+    return view('nganh');
 });
