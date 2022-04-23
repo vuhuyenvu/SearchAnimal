@@ -107,3 +107,17 @@ Route::post('/sua-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@sua
 Route::post('/xoa-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@xoa_bao_ton_theo_cites');
 Route::post('/tim-kiem-bao-ton-theo-cites', 'App\Http\Controllers\AdminController@tim_kiem_bao_ton_theo_cites');
 
+Route::get('/sinh-canh', 'App\Http\Controllers\AdminController@sinh_canh');
+Route::post('/them-sinh-canh', 'App\Http\Controllers\AdminController@them_sinh_canh');
+Route::post('/sua-sinh-canh', 'App\Http\Controllers\AdminController@sua_sinh_canh');
+Route::post('/xoa-sinh-canh', 'App\Http\Controllers\AdminController@xoa_sinh_canh');
+Route::post('/tim-kiem-sinh-canh', 'App\Http\Controllers\AdminController@tim_kiem_sinh_canh');
+
+Route::get('/phan-bo', 'App\Http\Controllers\AdminController@phan_bo');
+Route::post('/them-phan-bo', 'App\Http\Controllers\AdminController@them_phan_bo');
+Route::post('/sua-phan-bo', 'App\Http\Controllers\AdminController@sua_phan_bo');
+Route::post('/xoa-phan-bo', 'App\Http\Controllers\AdminController@xoa_phan_bo');
+Route::post('/tim-kiem-phan-bo', 'App\Http\Controllers\AdminController@tim_kiem_phan_bo');
+
+//ĐỘNG VẬT
+Route::get('/dong-vat', 'App\Http\Controllers\AdminController@dong_vat');

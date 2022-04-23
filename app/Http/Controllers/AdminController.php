@@ -788,5 +788,152 @@ class AdminController extends Controller
         return view('admin.template.master')->with('admin.home.baotontheocites',$mana);
     }
 
-    
+
+    public function sinh_canh(){
+        $ds_bo = DB::table('sinhcanh')->get();
+        $ma_bo_moi_nhat = DB::table('sinhcanh')->OrderBy('sc_ma','desc')->first();
+        $cnt_bo_ma = DB::table('sinhcanh')->count();
+        if($cnt_bo_ma == 0){
+            $mana = view('admin.home.sinhcanh')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',1);
+        }else{
+            $mana = view('admin.home.sinhcanh')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',++$ma_bo_moi_nhat->sc_ma);
+        }
+        return view('admin.template.master')->with('admin.home.sinhcanh',$mana);
+    }
+
+    public function them_sinh_canh(Request $request){
+        $bo = array();
+        $bo['sc_ma'] = $request->get('sc_ma');
+        $bo['sc_ten'] = $request->get('sc_ten');
+
+        if(DB::table('sinhcanh')->insert($bo)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/sinh-canh');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/sinh-canh');
+        }
+        
+    }
+
+    public function sua_sinh_canh(Request $request){
+        $bo = array();
+        $bo['sc_ten'] = $request->get('sc_ten');
+
+        if(DB::table('sinhcanh')->where('sc_ma',$request->get('sc_ma'))->update($bo)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/sinh-canh');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/sinh-canh');
+        }
+        
+    }
+    public function xoa_sinh_canh(Request $request){
+
+        if(DB::table('sinhcanh')->where('sc_ma',$request->get('sc_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/sinh-canh');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/sinh-canh');
+        }
+        
+    }
+
+    public function tim_kiem_sinh_canh(Request $request){
+        $tu_khoa = $request->get('timbo');
+        if($tu_khoa){
+            $ds_bo = DB::table('sinhcanh')
+            ->where('sc_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('sc_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bo = DB::table('sinhcanh')->get();
+        }
+        $ma_bo_moi_nhat = DB::table('sinhcanh')->OrderBy('sc_ma','desc')->first();
+        $ma_bo_moi_nhat->sc_ma++;
+        $mana = view('admin.home.sinhcanh')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',$ma_bo_moi_nhat->sc_ma);
+        return view('admin.template.master')->with('admin.home.sinhcanh',$mana);
+    }
+
+
+    public function phan_bo(){
+        $ds_bo = DB::table('phanbo')->get();
+        $ma_bo_moi_nhat = DB::table('phanbo')->OrderBy('pb_ma','desc')->first();
+        $cnt_bo_ma = DB::table('phanbo')->count();
+        if($cnt_bo_ma == 0){
+            $mana = view('admin.home.phanbo')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',1);
+        }else{
+            $mana = view('admin.home.phanbo')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',++$ma_bo_moi_nhat->pb_ma);
+        }
+        return view('admin.template.master')->with('admin.home.phanbo',$mana);
+    }
+
+    public function them_phan_bo(Request $request){
+        $bo = array();
+        $bo['pb_ma'] = $request->get('pb_ma');
+        $bo['pb_ten'] = $request->get('pb_ten');
+
+        if(DB::table('phanbo')->insert($bo)){
+            Session::put('message','Thêm thành công');
+            return Redirect::to('/phan-bo');
+        }
+        else{
+            Session::put('fail','Thêm thất bại');
+            return Redirect::to('/phan-bo');
+        }
+        
+    }
+
+    public function sua_phan_bo(Request $request){
+        $bo = array();
+        $bo['pb_ten'] = $request->get('pb_ten');
+
+        if(DB::table('phanbo')->where('pb_ma',$request->get('pb_ma'))->update($bo)){
+            Session::put('message','Sửa thành công');
+            return Redirect::to('/phan-bo');
+        }
+        else{
+            Session::put('fail','Sửa thất bại');
+            return Redirect::to('/phan-bo');
+        }
+        
+    }
+    public function xoa_phan_bo(Request $request){
+
+        if(DB::table('phanbo')->where('pb_ma',$request->get('pb_ma'))->delete()){
+            Session::put('message','Xóa thành công');
+            return Redirect::to('/phan-bo');
+        }
+        else{
+            Session::put('fail','Xoá thất bại');
+            return Redirect::to('/phan-bo');
+        }
+        
+    }
+
+    public function tim_kiem_phan_bo(Request $request){
+        $tu_khoa = $request->get('timbo');
+        if($tu_khoa){
+            $ds_bo = DB::table('phanbo')
+            ->where('pb_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('pb_ten','like','%'.$tu_khoa.'%')->get();
+        }
+        else{
+            $ds_bo = DB::table('phanbo')->get();
+        }
+        $ma_bo_moi_nhat = DB::table('phanbo')->OrderBy('pb_ma','desc')->first();
+        $ma_bo_moi_nhat->pb_ma++;
+        $mana = view('admin.home.phanbo')->with('ds_bo',$ds_bo)->with('ma_bo_moi_nhat',$ma_bo_moi_nhat->pb_ma);
+        return view('admin.template.master')->with('admin.home.phanbo',$mana);
+    }
+
+    public function dong_vat(){
+        $mana = view('admin.home.dongvat');
+        return view('admin.template.master')->with('admin.home.dongvat',$mana);
+    }
 }

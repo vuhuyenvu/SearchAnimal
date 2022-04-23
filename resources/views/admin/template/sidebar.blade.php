@@ -3,11 +3,11 @@
      <nav class="navbar navbar-expand-sm navbar-default">
          <div id="main-menu" class="main-menu collapse navbar-collapse">
              <ul class="nav navbar-nav">
-                 <li class="active">
+                 <li id="admin-dashboard">
                      <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                  </li>
                  <li class="menu-title">ĐỘNG VẬT</li><!-- /.menu-title -->
-                 <li class="menu-item-has-children dropdown">
+                 <li class="menu-item-has-children dropdown" id="quan-ly">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                          aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Quản Lý</a>
                      <ul class="sub-menu children dropdown-menu">
@@ -18,6 +18,8 @@
                         <li><i class="fa fa-exclamation-triangle"></i><a href="{{URL::to('/gioi')}}">Giới</a></li>
                          <li><i class="fa fa-spinner"></i><a href="{{URL::to('/lop')}}">Lớp</a></li>
                          <li><i class="fa fa-fire"></i><a href="{{URL::to('/nganh')}}">Ngành</a></li>
+                         <li><i class="fa fa-fire"></i><a href="{{URL::to('/sinh-canh')}}">Sinh Cảnh</a></li>
+                         <li><i class="fa fa-fire"></i><a href="{{URL::to('/phan-bo')}}">Phân Bố</a></li>
                          <li><i class="fa fa-book"></i><a href="{{URL::to('/tinhtrangmauvat')}}">Tình Trạng Mẫu Vật</a></li>
                      </ul>
                  </li>
@@ -30,6 +32,10 @@
                          <li><i class="fa fa-table"></i><a href="{{URL::to('/bao-ton-theo-uicn')}}">Bảo Tồn Theo UICN</a></li>
                          <li><i class="fa fa-table"></i><a href="{{URL::to('/bao-ton-theo-cites')}}">Bảo Tồn Theo CITES</a></li>
                      </ul>
+                 </li>
+                 <li class="menu-item-has-children" id="quan-ly-dong-vat">
+                     <a href="{{URL::to('/dong-vat')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Quản Lý Động Vật</a>
                  </li>
                  <li class="menu-item-has-children dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
