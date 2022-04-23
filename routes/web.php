@@ -61,3 +61,9 @@ Route::get('/lop', 'App\Http\Controllers\AdminController@lop');
 Route::get('/nganh', function () {
     return view('nganh');
 });
+
+
+
+
+// Comment
+Route::post('comment/{id}','App\Http\Controllers\CommentController@them_comment');

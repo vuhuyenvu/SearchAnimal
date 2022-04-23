@@ -23,6 +23,24 @@
 
 @endsection
 @section('content')
+<style>
+      .comment  {
+        width: 70%;
+        height: 160px;
+        padding: 10px;
+        background-color: #d0e2bc;
+        margin:auto;
+        margin-bottom:10px
+      }
+      .comment_list  {
+        /* margin-top:50px; */
+        width: 70%;
+        height: 160px;
+        padding: 10px;
+        background-color: #d0e2bc;
+        margin:auto;
+      }
+    </style>
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
         <div class="container">
@@ -169,6 +187,59 @@
     </section>
     <!-- Product Details Section End -->
 
+    <?php
+        $id_user = 1;
+    ?>
+<!-- comment begin-->
+<div class="container">
+            <div class="row">
+                  @if(Session::has('alert'))
+                <script>                
+                  swal({
+                          type: 'success',
+                          icon: 'success',
+                          title: '{!! Session::get('alert') !!}',
+                          showConfirmButton: false,
+                          timer: 1500
+                        });
+                </script>
+                @endif     
+                @if(count($errors) > 0 )
+                <div class = "alert alert-danger text-center">
+                    @foreach($errors->all() as $err)
+                      {{$err}}<br>
+                    @endforeach
+                </div>
+                @endif
+                <div class="col-lg-12">
+                    <div class="section-title related__product__title">
+                        <h2>Bình luận</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="comment">
+                    <!-- <label for="">Bình luận</label> -->
+                        
+                        <form action="comment/{{$id_user}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <textarea class="form-control"name="noidung" id="" cols="30" rows="3"></textarea>
+                        
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="comment_list">
+                        <h1>cm cm</h1>
+                    </div>
+                </div>
+
+        </div>
+</div>
+<!-- comment end-->
     <!-- Related Product Section Begin -->
     <section class="related-product">
         <div class="container">
