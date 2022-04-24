@@ -47,7 +47,7 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Cairo", sans-serif;
+	font-family: SYSTEM-UI;
 }
 
 h1 {
@@ -772,7 +772,7 @@ ol {
 }
 
 .categories__item h5 a {
-	font-size: 18px;
+	font-size: 14px;
 	color: #1c1c1c;
 	font-weight: 700;
 	text-transform: uppercase;

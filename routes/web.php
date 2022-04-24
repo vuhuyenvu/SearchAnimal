@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('client.home.index');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@home_loaddata');
+
+
 Route::get('/grid', function () {
     return view('client.home.grid');
 });
@@ -27,6 +27,7 @@ Route::get('/respond', function () {
 Route::get('/detail', function () {
     return view('client.home.detail');
 });
+Route::get('/detail/{id}','App\Http\Controllers\HomeController@detail')->name('chi-tiet');
 
 
 Route::get('/admin-dashboard', function () {
@@ -55,7 +56,6 @@ Route::get('/ho','App\Http\Controllers\AdminController@ho');
 Route::get('/gioi', 'App\Http\Controllers\AdminController@gioi');
 
 Route::get('/lop', 'App\Http\Controllers\AdminController@lop');
-
 
 
 Route::get('/nganh', function () {
