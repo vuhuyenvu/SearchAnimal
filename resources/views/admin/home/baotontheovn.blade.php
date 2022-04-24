@@ -215,7 +215,12 @@
     </div>
 </div>
 
+@endsection
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#bao-ton-theo-vn').addClass('active');
+});
 function sua_baotontheovn() {
     var Index, table = document.getElementById('baotontheovn');
     for (var i = 1; i < table.rows.length; i++) {

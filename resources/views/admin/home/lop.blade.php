@@ -210,7 +210,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#lop').addClass('active');
+});
 function sua_lop() {
     var Index, table = document.getElementById('lop');
     for (var i = 1; i < table.rows.length; i++) {

@@ -16,8 +16,8 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text">$<span class="count">23569</span></div>
-                                    <div class="stat-heading">Revenue</div>
+                                    <div class="stat-text">$<span class="count">{{$cnt_dv}}</span></div>
+                                    <div class="stat-heading">Con Vật</div>
                                 </div>
                             </div>
                         </div>
@@ -34,8 +34,8 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">3435</span></div>
-                                    <div class="stat-heading">Sales</div>
+                                    <div class="stat-text"><span class="count">{{$cnt_gioi}}</span></div>
+                                    <div class="stat-heading">Giới</div>
                                 </div>
                             </div>
                         </div>
@@ -52,8 +52,8 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">349</span></div>
-                                    <div class="stat-heading">Templates</div>
+                                    <div class="stat-text"><span class="count">{{$cnt_bo}}</span></div>
+                                    <div class="stat-heading">Bộ</div>
                                 </div>
                             </div>
                         </div>
@@ -70,8 +70,8 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">2986</span></div>
-                                    <div class="stat-heading">Clients</div>
+                                    <div class="stat-text"><span class="count">{{$cnt_user}}</span></div>
+                                    <div class="stat-heading">Người Dùng</div>
                                 </div>
                             </div>
                         </div>

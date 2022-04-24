@@ -210,7 +210,12 @@
         </div>
     </div>
 </div>
+@endsection
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#gioi').addClass('active');
+});
 function sua_gioi() {
     var Index, table = document.getElementById('gioi');
     for (var i = 1; i < table.rows.length; i++) {

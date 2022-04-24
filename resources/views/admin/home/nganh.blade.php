@@ -210,7 +210,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#nganh').addClass('active');
+});
 function sua_nganh() {
     var Index, table = document.getElementById('nganh');
     for (var i = 1; i < table.rows.length; i++) {

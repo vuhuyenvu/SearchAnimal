@@ -214,8 +214,13 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#bao-ton-theo-cites').addClass('active');
+});
 function sua_baotontheocites() {
     var Index, table = document.getElementById('baotontheocites');
     for (var i = 1; i < table.rows.length; i++) {

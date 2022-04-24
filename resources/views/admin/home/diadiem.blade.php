@@ -211,7 +211,12 @@
     </div>
 </div>
 
+@endsection
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#diadiem').addClass('active');
+});
 function sua_diadiem() {
     var Index, table = document.getElementById('diadiem');
     for (var i = 1; i < table.rows.length; i++) {

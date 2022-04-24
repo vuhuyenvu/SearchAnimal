@@ -212,7 +212,13 @@
     </div>
 </div>
 
+@endsection
+
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#tinh-trang-mau-vat').addClass('active');
+});
 function sua_tinhtrangmauvat() {
     var Index, table = document.getElementById('tinhtrangmauvat');
     for (var i = 1; i < table.rows.length; i++) {

@@ -212,7 +212,13 @@
     </div>
 </div>
 
+@endsection
+
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#phan-bo').addClass('active');
+});
 function sua_bo() {
     var Index, table = document.getElementById('phanbo');
     for (var i = 1; i < table.rows.length; i++) {

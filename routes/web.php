@@ -29,17 +29,24 @@ Route::get('/detail', function () {
 });
 
 
-Route::get('/admin-dashboard', function () {
-    return view('admin.home.index');
-});
+
 
 
 Route::get('/login-user', function () {
-
     return view('login');
 });
 
+
 //Admin routes
+
+Route::get('/admin-login','App\Http\Controllers\AdminController@admin_login');
+Route::POST('/dang-nhap-admin','App\Http\Controllers\AdminController@dang_nhap_admin');
+
+Route::get('/log-out-admin','App\Http\Controllers\AdminController@log_out_admin');
+
+
+Route::get('/admin-dashboard','App\Http\Controllers\AdminController@index');
+
 Route::get('/bo','App\Http\Controllers\AdminController@bo');
 Route::post('/them-bo','App\Http\Controllers\AdminController@them_bo');
 Route::post('/sua-bo','App\Http\Controllers\AdminController@sua_bo');
@@ -121,3 +128,33 @@ Route::post('/tim-kiem-phan-bo', 'App\Http\Controllers\AdminController@tim_kiem_
 
 //ĐỘNG VẬT
 Route::get('/dong-vat', 'App\Http\Controllers\AdminController@dong_vat');
+Route::get('/dong-vat/lay-danh-sach-dv', 'App\Http\Controllers\AdminController@lay_danh_sach_dv');
+Route::POST('/dong-vat/them-dong-vat', 'App\Http\Controllers\AdminController@them_dv');
+Route::POST('/dong-vat/xem-chi-tiet', 'App\Http\Controllers\AdminController@xem_chi_tiet');
+Route::POST('/dong-vat/xem-hinh-anh-dv', 'App\Http\Controllers\AdminController@xem_hinh_anh_dv');
+Route::POST('/dong-vat/them-hinh-anh-moi', 'App\Http\Controllers\AdminController@them_hinh_anh_moi');
+Route::POST('/dong-vat/xoa-hinh-anh', 'App\Http\Controllers\AdminController@xoa_hinh_anh');
+Route::POST('/dong-vat/lay-cac-field-len-modal', 'App\Http\Controllers\AdminController@lay_cac_field_len_modal');
+Route::POST('/dong-vat/sua-dong-vat', 'App\Http\Controllers\AdminController@sua_dong_vat');
+Route::POST('/dong-vat/xoa-dv', 'App\Http\Controllers\AdminController@xoa_dv');
+
+//Địa Điểm
+Route::POST('/dong-vat/xem-dia-diem', 'App\Http\Controllers\AdminController@xem_dia_diem');
+Route::POST('/dong-vat/lay-ds-diadiem', 'App\Http\Controllers\AdminController@lay_ds_diadiem');
+Route::POST('/dong-vat/them-dia-diem', 'App\Http\Controllers\AdminController@them_dia_diem');
+Route::POST('/dong-vat/xoa-dia-diem', 'App\Http\Controllers\AdminController@xoa_dia_diem');
+
+
+
+
+//Sinh cảnh
+Route::POST('/dong-vat/xem-sinh-canh', 'App\Http\Controllers\AdminController@xem_sinh_canh');
+Route::POST('/dong-vat/lay-ds-sinhcanh', 'App\Http\Controllers\AdminController@lay_ds_sinhcanh');
+Route::POST('/dong-vat/them-sinh-canh', 'App\Http\Controllers\AdminController@them_sinhcanh');
+Route::POST('/dong-vat/xoa-sinhcanh', 'App\Http\Controllers\AdminController@xoa_sinhcanh');
+
+
+//Bình Luận
+
+Route::get('/binh-luan', 'App\Http\Controllers\AdminController@binh_luan');
+Route::get('/xoa-binh-luan/{bl_id}', 'App\Http\Controllers\AdminController@xoa_binh_luan');

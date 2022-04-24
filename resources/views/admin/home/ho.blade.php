@@ -211,7 +211,12 @@
         </div>
     </div>
 </div>
+@endsection
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#ho').addClass('active');
+});
 function sua_ho() {
     var Index, table = document.getElementById('ho');
     for (var i = 1; i < table.rows.length; i++) {

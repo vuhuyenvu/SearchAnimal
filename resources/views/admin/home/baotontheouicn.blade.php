@@ -215,7 +215,12 @@
     </div>
 </div>
 
+@endsection
+@section('javascript')
 <script type="text/javascript">
+$(document).ready(() => {
+    $('#bao-ton-theo-uicn').addClass('active');
+});
 function sua_baotontheouicn() {
     var Index, table = document.getElementById('baotontheouicn');
     for (var i = 1; i < table.rows.length; i++) {
