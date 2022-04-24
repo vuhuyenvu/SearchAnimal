@@ -19,7 +19,7 @@ class HomeController extends Controller
 {
     //
     public function grid(){
-        $dsdv = DB::table('dongvat')->get();
+        $dsdv = DB::table('dongvat')->orderBy('dv_tentiengviet', 'asc')->get();
        
         return view('client.home.grid2',['dsdv'=>$dsdv]);
 
