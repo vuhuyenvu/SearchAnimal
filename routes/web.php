@@ -18,13 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@home_loaddata')->name('trang-chu');
 
 
-Route::get('/grid','App\Http\Controllers\HomeController@grid');
+Route::get('/grid','App\Http\Controllers\HomeController@grid')->name('grid');
 Route::get('search', 'App\Http\Controllers\HomeController@getSearch');
 Route::post('search/name','App\Http\Controllers\HomeController@getSearchAjax')->name('search');
 
-Route::get('/respond', function () {
-    return view('client.home.respond');
-});
+Route::get('/respond','App\Http\Controllers\HomeController@respond')->name('respond');
+
 Route::get('/detail', function () {
     return view('client.home.detail');
 });

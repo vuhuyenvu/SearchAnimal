@@ -19,7 +19,10 @@ class HomeController extends Controller
 {
     //
     public function grid(){
-        return view('client.home.grid'); 
+        $dsdv = DB::table('dongvat')->get();
+       
+        return view('client.home.grid2',['dsdv'=>$dsdv]);
+
     }
     public function getSearch(Request $request)
     {
@@ -54,7 +57,7 @@ class HomeController extends Controller
                 $out->writeln($row->dv_tendiaphuong);
                $output .= '
                
-        <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-4">
                 <div class="product__item">
                     <div class="product__item__pic set-bg">
                     <img src="http://localhost:8000/client-template/img/animal/BIRD1.JPG" alt="">
@@ -133,4 +136,10 @@ class HomeController extends Controller
     }
     public function animal_newest(){
       }
+      public function respond(){
+        return view('client.home.respond');
+
+      } 
+
+   
 }

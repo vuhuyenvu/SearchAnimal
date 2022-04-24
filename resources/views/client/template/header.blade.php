@@ -75,10 +75,10 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{route('trang-chu')}}">Trang chủ</a></li>
-                            <li ><a href="./shop-grid.html">Danh mục</a></li>
+                            <li class="active"><a href="{{route('trang-chu')}}">Home</a></li>
+                            <li ><a href="{{route('grid')}}">Cagetory</a></li>
                             
-                            <li><a href="./blog.html">Liên hệ </a></li>
+                            <li><a href="{{route('respond')}}">Contact</a></li>
                             
                         </ul>
                     </nav>

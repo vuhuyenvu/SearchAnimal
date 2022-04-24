@@ -36,8 +36,8 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div> -->
-                                <input type="text" placeholder="Tìm kiếm">
-                                <button type="submit" class="site-btn">Tìm</button>
+                                <input type="text" placeholder="What do you want to search?">
+                                <button type="submit" class="site-btn">Search</button>
                             </form>
                         </div>
                         
@@ -56,10 +56,10 @@
        
             <div class="hero__item set-bg" data-setbg="{{asset('client-template/img/banner/header_banner.jpg')}}">
                                     <div class="hero__text">
-                                        <span>FRUIT FRESH home</span>
-                                        <h2>Vegetable <br />100% Organic</h2>
-                                        <p>Free Pickup and Delivery Available</p>
-                                        <a href="#" class="primary-btn">SHOP NOW</a>
+                                       
+                                        <h2>Discover cute, wild, and weird animals using the search bar below, or scroll to see popular animal lists!</h2>
+                                        <br>
+                                        <a href="#" class="primary-btn">SEE THEM ALL</a>
                                     </div>
                                 </div>
                                 </div>
@@ -101,20 +101,7 @@
             </div>
             <div class="row featured__filter">
                 
-                @foreach($dsdv as $dv)                              
-                
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{asset('client-template/img/animal/chim-re-quat-vang.jpg')}}">
-                           
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">{{$dv->dv_tentiengviet}}</a></h6>
-                            <h5></h5>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+              
                 @foreach($dsdv as $dv)                              
                 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
@@ -157,7 +144,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>From The Blog</h2>
+                        <h2>Newest</h2>
                     </div>
                 </div>
             </div>
