@@ -110,7 +110,7 @@
         $id_user = 1;
     ?>
 <!-- comment begin-->
-<div class="container">
+<!-- <div class="container">
             <div class="row">
                   @if(Session::has('alert'))
                 <script>                
@@ -157,7 +157,7 @@
                 </div>
 
         </div>
-</div>
+</div> -->
 <!-- comment end-->
     <!-- Related Product Section Begin -->
     <section class="related-product">

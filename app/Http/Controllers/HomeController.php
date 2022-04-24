@@ -18,6 +18,64 @@ use Yajra\Datatables\Datatables;
 class HomeController extends Controller
 {
     //
+    public function grid(){
+        return view('client.home.grid'); 
+    }
+    public function getSearch(Request $request)
+    {
+        return view('client.home.grid_copy');
+    }
+
+    function getSearchAjax(Request $request)
+    {
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+      if($request->get('query'))
+        {
+           
+            $query = $request->get('query');
+            $data = DB::table('dongvat')
+            ->join('lop', function ($join) {
+                $join->on('dongvat.dv_lop', '=', 'lop.lop_ma');
+                     
+            })
+            ->where('dv_tendiaphuong', 'LIKE', "%{$query}%")
+            ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
+            ->orWhere('dv_tendiaphuong', 'LIKE', "%{$query}%")
+            ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
+          
+            
+            ->orWhere('lop_ten', 'LIKE', "%{$query}%")
+            ->get();
+            
+            
+            $output = '<div class="row">';
+            foreach($data as $row)
+            {
+                $out->writeln($row->dv_tendiaphuong);
+               $output .= '
+               
+        <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg">
+                    <img src="http://localhost:8000/client-template/img/animal/BIRD1.JPG" alt="">
+                                
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">'.$row->dv_tendiaphuong.'</a></h6>
+                        <p>'.$row->dv_tenkhoahoc.'</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+               ';
+           }
+           $output .= '</div>';
+           echo $output;
+       }
+    }
+    // <li><a href="data/'. $row->id .'">'.$row->name_product.'</a></li>
+             
     public function home_loaddata(){
         
         $dsdv = DB::table('dongvat')->get();
