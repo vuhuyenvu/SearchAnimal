@@ -75,12 +75,31 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
+                        <?php
+                        $uri = $_SERVER['REQUEST_URI'];
+                       
+                        ?>
+                        @if($uri == '/')
                             <li class="active"><a href="{{route('trang-chu')}}">Home</a></li>
                             <li ><a href="{{route('grid')}}">Cagetory</a></li>
                             
                             <li><a href="{{route('respond')}}">Contact</a></li>
+                        @elseif($uri == '/grid')
+                        <li ><a href="{{route('trang-chu')}}">Home</a></li>
+                            <li class="active"><a href="{{route('grid')}}">Cagetory</a></li>
                             
+                            <li><a href="{{route('respond')}}">Contact</a></li>
+                        @else  
+                        <li ><a href="{{route('trang-chu')}}">Home</a></li>
+                            <li ><a href="{{route('grid')}}">Cagetory</a></li>
+                            
+                            <li class="active"><a href="{{route('respond')}}">Contact</a></li>
+                          
+                            @endif 
+                        
+
                         </ul>
+                       
                     </nav>
                 </div>
                

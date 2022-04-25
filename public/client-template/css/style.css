@@ -1266,9 +1266,9 @@ width: 472px;}
 }
 
 .product__discount__title {
-	text-align: left;
+	text-align: center;
 	margin-bottom: 65px;
-}
+margin: auto;}
 
 .product__discount__title h2 {
 	display: inline-block;

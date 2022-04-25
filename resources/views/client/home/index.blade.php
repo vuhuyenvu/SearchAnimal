@@ -77,8 +77,9 @@
                 @foreach($dsdv as $dv)                              
                 
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('client-template/img/animal/vang-anh-cac-loai-chim.jpg')}}">
-                            <h5><a href="#">{{$dv->dv_tentiengviet}}</a></h5>
+                        <div class="categories__item set-bg" data-setbg="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}">
+                            <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
+                        <h5><a href="#">{{$dv->dv_tentiengviet}}</a></h5>
                         </div>
                     </div>
                     @endforeach   
@@ -106,8 +107,9 @@
                 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{asset('client-template/img/animal/chim-re-quat-vang.jpg')}}">
-                           
+                        <div class="featured__item__pic set-bg">
+                        <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
+                      
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">{{$dv->dv_tentiengviet}}</a></h6>
@@ -154,7 +156,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="{{asset('client-template/img/animal/honghac.jpg')}}" alt="">
+                            <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <!-- <ul>

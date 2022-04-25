@@ -23,29 +23,13 @@
     <section class="hero hero-normal">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <!-- <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                            
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div> -->
+            <div class="col-lg-2">
+        </div>
+                <div class="col-lg-2">
+                
+                  
                 </div>
-                <div class="col-lg-9">
+                <div class="col-lg-7">
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
@@ -265,7 +249,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-4">
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg">
-                                        <img src="http://localhost:8000/client-template/img/animal/BIRD1.JPG" alt="">
+                                        <img src="http://localhost:8000/client-template/img/animal/{{$dv->ha_link}}" alt="">
                                                     
                                         </div>
                                         <div class="product__item__text">
@@ -312,14 +296,21 @@
     </section>
 
     <!-- Product Section End -->
-
-    <script type="text/javascript">
-$(document).ready(function(){
+<script>
+    
+    
   
- $('#country_name').keyup(function(){ //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
+
+$(document).ready(function(){
+   
+ $('#country_name').keyup(function(){
+     
+    //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
   var query = $(this).val(); //lấy gía trị ng dùng gõ
   if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
   {
+    
+      
     document. getElementsByTagName("countryList").innerHtml ='';
    var _token = $('input[name="_token"]').val(); // token để mã hóa dữ liệu
    $.ajax({
@@ -327,8 +318,24 @@ $(document).ready(function(){
     method:"POST", // phương thức gửi dữ liệu.
     data:{query:query, _token:_token},
     success:function(data){ //dữ liệu nhận về
-     $('#countryList').fadeIn();  
-     $('#countryList').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+        if(data == '<div class="row"></div>'|| data=='') {
+                        
+            $("#countryList").html(`<div class="product__discount">
+                            <div class="section-title product__discount__title">
+                                <h4>Không tìm thấy thông tin! Vui lòng nhập lại từ khóa !</h4>
+                            </div>
+                        </div>`);
+            // document. getElementsByTagName("countryList").innerHtml ='';
+
+        }
+     
+     else {
+                    $('#countryList').fadeIn(); 
+                
+                $('#countryList').html(data);
+     }
+     
+      //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
    }
  });
  }
@@ -340,6 +347,7 @@ $(document).ready(function(){
 });  
 
 });
-</script>
 
+
+</script>
 @endsection

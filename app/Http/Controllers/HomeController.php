@@ -19,7 +19,11 @@ class HomeController extends Controller
 {
     //
     public function grid(){
-        $dsdv = DB::table('dongvat')->orderBy('dv_tentiengviet', 'asc')->get();
+        $dsdv = DB::table('dongvat')
+        ->join('hinhanh', function ($join) {
+            $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
+                 
+        })->orderBy('dv_tentiengviet', 'asc')->get();
        
         return view('client.home.grid2',['dsdv'=>$dsdv]);
 
@@ -32,35 +36,36 @@ class HomeController extends Controller
     function getSearchAjax(Request $request)
     {
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-      if($request->get('query'))
+      $out->writeln($request->get('cb'));
+        if($request->get('query'))
         {
            
             $query = $request->get('query');
             $data = DB::table('dongvat')
-            ->join('lop', function ($join) {
-                $join->on('dongvat.dv_lop', '=', 'lop.lop_ma');
+            ->join('hinhanh', function ($join) {
+                $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
                      
-            })
+            })          
             ->where('dv_tendiaphuong', 'LIKE', "%{$query}%")
             ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
             ->orWhere('dv_tendiaphuong', 'LIKE', "%{$query}%")
             ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
           
             
-            ->orWhere('lop_ten', 'LIKE', "%{$query}%")
+            // ->orWhere('lop_ten', 'LIKE', "%{$query}%")
             ->get();
             
             
             $output = '<div class="row">';
             foreach($data as $row)
             {
-                $out->writeln($row->dv_tendiaphuong);
+                // $out->writeln($row->dv_tendiaphuong);
                $output .= '
                
         <div class="col-lg-3 col-md-4 col-sm-4">
                 <div class="product__item">
                     <div class="product__item__pic set-bg">
-                    <img src="http://localhost:8000/client-template/img/animal/BIRD1.JPG" alt="">
+                    <img src="http://localhost:8000/client-template/img/animal/'.$row->ha_link.'" alt="">
                                 
                     </div>
                     <div class="product__item__text">
@@ -81,8 +86,14 @@ class HomeController extends Controller
              
     public function home_loaddata(){
         
-        $dsdv = DB::table('dongvat')->get();
-        $ds = DB::table('dongvat')->take(3)->get();
+        $dsdv = DB::table('dongvat') ->join('hinhanh', function ($join) {
+            $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
+                 
+        })->take(6)->get();
+        $ds = DB::table('dongvat') ->join('hinhanh', function ($join) {
+            $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
+                 
+        })->orderBy('dongvat.dv_ma', 'desc')->take(3)->get();
         return view('client.home.index',['dsdv'=>$dsdv,'ds'=>$ds]);
 
     }
