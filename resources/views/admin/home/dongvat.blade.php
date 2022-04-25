@@ -61,19 +61,19 @@
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Đặc điểm hình thái</label>
-                    <input type="text" id="them_dv_dacdiemhinhthai" placeholder="Nhập tên địa phương"
+                    <input type="text" id="them_dv_dacdiemhinhthai" placeholder="Nhập Đặc điểm hình thái"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Đặc điểm sinh thái</label>
-                    <input type="text" id="them_dv_dacdiemsinhthai" placeholder="Nhập tên địa phương"
+                    <input type="text" id="them_dv_dacdiemsinhthai" placeholder="Nhập Đặc điểm sinh thái"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Giá trị sử dụng</label>
-                    <input type="text"  id="them_dv_giatrisudung" placeholder="Nhập tên địa phương"
+                    <input type="text"  id="them_dv_giatrisudung" placeholder="Nhập Giá trị sử dụng"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Ngày thu mẫu</label>
-                    <input type="date" id="them_dv_ngaythumau" placeholder="Nhập tên địa phương"
+                    <input type="date" id="them_dv_ngaythumau" 
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Người thu mẫu</label>
@@ -262,19 +262,19 @@
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Đặc điểm hình thái</label>
-                    <input type="text" id="sua_dv_dacdiemhinhthai" placeholder="Nhập tên địa phương"
+                    <input type="text" id="sua_dv_dacdiemhinhthai" placeholder="Nhập Đặc điểm hình thái"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Đặc điểm sinh thái</label>
-                    <input type="text" id="sua_dv_dacdiemsinhthai" placeholder="Nhập tên địa phương"
+                    <input type="text" id="sua_dv_dacdiemsinhthai" placeholder="Nhập Đặc điểm sinh thái"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Giá trị sử dụng</label>
-                    <input type="text"  id="sua_dv_giatrisudung" placeholder="Nhập tên địa phương"
+                    <input type="text"  id="sua_dv_giatrisudung" placeholder="Nhập Giá trị sử dụng"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Ngày thu mẫu</label>
-                    <input type="date" id="sua_dv_ngaythumau" placeholder="Nhập tên địa phương"
+                    <input type="date" id="sua_dv_ngaythumau"
                         class="form-control">
                 </div>
                 <div class="form-group"><label for="nf-password" class=" form-control-label">Người thu mẫu</label>
@@ -520,7 +520,7 @@
 <div class="hidden"></div>
 
 <!-- modal xem địa điểm -->
-<div class="modal fade" id="diadiem" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true"
+<div class="modal fade" id="diadiemdv" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true"
     style="width: 40%;margin: 0 auto;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -619,7 +619,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                 <button id="themhinhanh" data-toggle="modal"
-                    data-target="#modalthemsinhcanh" data-role="laydssinhcanh" data-dismiss="modal" type="button" class="btn btn-success">Thêm Địa Điểm</button>
+                    data-target="#modalthemsinhcanh" data-role="laydssinhcanh" data-dismiss="modal" type="button" class="btn btn-success">Thêm Sinh Cảnh</button>
             </div>
         </div>
     </div>
@@ -875,25 +875,24 @@ $('#them_dv_moi').on('click', () => {
                 alert('Thêm động vật thành công');
                 mytable = $('#dongvat').DataTable();
                 mytable.draw();
-                $('#them_dv_ma').val('');
                 $('#them_dv_tenkhoahoc').val('');
-                $('#dv_tentiengviet').val('');
-                $('#dv_tendiaphuong').val('');
-                $('#them_dv_gioi').val('');
-                $('#them_dv_nganh').val('');
-                $('#them_dv_lop').val('');
-                $('#them_dv_ho').val('');
-                $('#them_dv_bo').val('');
+                $('#them_dv_tentiengviet').val('');
+                $('#them_dv_tendiaphuong').val('');
+                $('#them_dv_gioi').val('1');
+                $('#them_dv_nganh').val('1');
+                $('#them_dv_lop').val('1');
+                $('#them_dv_ho').val('1');
+                $('#them_dv_bo').val('1');
                 $('#them_dv_dacdiemhinhthai').val('');
                 $('#them_dv_dacdiemsinhthai').val('');
-                $('#them_dv_giatrisudung').val('');
-                $('#them_dv_baotontheouicn').val('');
-                $('#them_dv_baotontheovn').val('');
-                $('#them_dv_baotontheonghidinh').val('');
-                $('#them_dv_baotontheocites').val('');
-                $('#them_dv_tinhtrangmauvat').val('');
+                $('#them_dv_giatrisudung').val('1');
+                $('#them_dv_baotontheouicn').val('1');
+                $('#them_dv_baotontheovn').val('1');
+                $('#them_dv_baotontheonghidinh').val('1');
+                $('#them_dv_baotontheocites').val('1');
+                $('#them_dv_tinhtrangmauvat').val('1');
                 $('#them_dv_ngaythumau').val('');
-                $('#them_dv_nguoithumau').val('');
+                $('#them_dv_nguoithumau').val('1');
                 
             }
             else{

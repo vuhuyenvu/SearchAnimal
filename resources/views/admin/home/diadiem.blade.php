@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group"><label for="nf-password" class=" form-control-label">Tên địa điểm</label>
                             <input type="text" id="nf-password" name="diadiem_ten" placeholder="Nhập tên địa điểm"
-                                class="form-control" value="" readonly>
+                                class="form-control">
                         </div>
 
                     </div>
@@ -180,7 +180,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table" id="diadiem">
+                        <table class="table" id="table_diadiem">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -218,7 +218,7 @@ $(document).ready(() => {
     $('#diadiem').addClass('active');
 });
 function sua_diadiem() {
-    var Index, table = document.getElementById('diadiem');
+    var Index, table = document.getElementById('table_diadiem');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -229,7 +229,7 @@ function sua_diadiem() {
 }
 
 function xoa_diadiem() {
-    var Index, table = document.getElementById('diadiem');
+    var Index, table = document.getElementById('table_diadiem');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;

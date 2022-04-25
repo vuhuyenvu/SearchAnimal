@@ -181,7 +181,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table " id="phanbo">
+                        <table class="table " id="table_phanbo">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -220,7 +220,7 @@ $(document).ready(() => {
     $('#phan-bo').addClass('active');
 });
 function sua_bo() {
-    var Index, table = document.getElementById('phanbo');
+    var Index, table = document.getElementById('table_phanbo');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -231,7 +231,7 @@ function sua_bo() {
 }
 
 function xoa_bo() {
-    var Index, table = document.getElementById('phanbo');
+    var Index, table = document.getElementById('table_phanbo');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;

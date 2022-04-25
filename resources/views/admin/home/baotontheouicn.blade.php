@@ -184,7 +184,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table " id="baotontheouicn">
+                        <table class="table " id="table_baotontheouicn">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -222,7 +222,7 @@ $(document).ready(() => {
     $('#bao-ton-theo-uicn').addClass('active');
 });
 function sua_baotontheouicn() {
-    var Index, table = document.getElementById('baotontheouicn');
+    var Index, table = document.getElementById('table_baotontheouicn');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -233,7 +233,7 @@ function sua_baotontheouicn() {
 }
 
 function xoa_baotontheouicn() {
-    var Index, table = document.getElementById('baotontheouicn');
+    var Index, table = document.getElementById('table_baotontheouicn');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
