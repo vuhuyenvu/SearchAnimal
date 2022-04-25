@@ -3,43 +3,86 @@
      <nav class="navbar navbar-expand-sm navbar-default">
          <div id="main-menu" class="main-menu collapse navbar-collapse">
              <ul class="nav navbar-nav">
-                 <li class="active">
-                     <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                 <li id="admin-dashboard">
+                     <a href="{{URL::to('admin-dashboard')}}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                  </li>
                  <li class="menu-title">ĐỘNG VẬT</li><!-- /.menu-title -->
-                 <li class="menu-item-has-children dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                         aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Quản Lý</a>
-                     <ul class="sub-menu children dropdown-menu">
-                         <li><i class="fa fa-id-badge"></i><a href="{{URL::to('/bo')}}">Bộ</a></li>
-                         <li><i class="fa fa-bars"></i><a href="{{URL::to('/dia-diem')}}">Địa Điểm</a></li>
+                 <li class="menu-item-has-children" id="bo">
+                     <a href="{{URL::to('/bo')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bộ</a>
+                 </li>
+                 <li class="menu-item-has-children" id="diadiem">
+                     <a href="{{URL::to('/diadiem')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Địa Điểm</a>
+                 </li>
+                 <li class="menu-item-has-children" id="ho">
+                     <a href="{{URL::to('/ho')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Họ</a>
+                 </li>
+                 <li class="menu-item-has-children" id="gioi">
+                     <a href="{{URL::to('/gioi')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Giới</a>
+                 </li>
+                 <li class="menu-item-has-children" id="lop">
+                     <a href="{{URL::to('/lop')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Lớp</a>
+                 </li>
+                 <li class="menu-item-has-children" id="nganh">
+                     <a href="{{URL::to('/nganh')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Ngành</a>
+                 </li>
+                 <li class="menu-item-has-children" id="sinh-canh">
+                     <a href="{{URL::to('/sinh-canh')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Sinh Cảnh</a>
+                 </li>
 
-                         <li><i class="fa fa-id-card-o"></i><a href="{{URL::to('/ho')}}">Họ</a></li>
-                        <li><i class="fa fa-exclamation-triangle"></i><a href="{{URL::to('/gioi')}}">Giới</a></li>
-                         <li><i class="fa fa-spinner"></i><a href="{{URL::to('/lop')}}">Lớp</a></li>
-                         <li><i class="fa fa-fire"></i><a href="{{URL::to('/nganh')}}">Ngành</a></li>
-                         <li><i class="fa fa-book"></i><a href="{{URL::to('/tinh-trang-mau-vat')}}">Tình Trạng Mẫu Vật</a></li>
-                     </ul>
+                 <li class="menu-item-has-children" id="phan-bo">
+                     <a href="{{URL::to('/phan-bo')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Phân Bố</a>
                  </li>
-                 <li class="menu-item-has-children dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Quản Lý Bảo Tồn</a>
-                     <ul class="sub-menu children dropdown-menu">
-                         <li><i class="fa fa-table"></i><a href="tables-basic.html">Bảo Tồn Theo Việt Nam</a></li>
-                         <li><i class="fa fa-table"></i><a href="tables-data.html">Bảo Tồn Theo Nghị Định</a></li>
-                         <li><i class="fa fa-table"></i><a href="tables-data.html">Bảo Tồn Theo UICN</a></li>
-                     </ul>
+                 <li class="menu-item-has-children" id="tinh-trang-mau-vat">
+                     <a href="{{URL::to('/tinhtrangmauvat')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tình Trạng Mẫu Vật</a>
                  </li>
-                 <li class="menu-item-has-children dropdown">
+
+                 <li class="menu-item-has-children" id="bao-ton-theo-vn">
+                     <a href="{{URL::to('/bao-ton-theo-vn')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bảo Tồn Theo Việt
+                                 Nam</a>
+                 </li>
+                 <li class="menu-item-has-children" id="bao-ton-theo-nghi-dinh">
+                     <a href="{{URL::to('/bao-ton-theo-nghi-dinh')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bảo Tồn Theo
+                                 Nghị Định</a>
+                 </li>
+                 <li class="menu-item-has-children" id="bao-ton-theo-uicn">
+                     <a href="{{URL::to('/bao-ton-theo-uicn')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bảo Tồn Theo
+                                 UICN</a>
+                 </li>
+                 <li class="menu-item-has-children" id="bao-ton-theo-cites">
+                     <a href="{{URL::to('/bao-ton-theo-cites')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bảo Tồn Theo
+                                 CITES</a>
+                 </li>
+                 <li class="menu-item-has-children" id="quan-ly-dong-vat">
+                     <a href="{{URL::to('/dong-vat')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Quản Lý Động Vật</a>
+                 </li>
+                 <li class="menu-item-has-children" id="quan-ly-binh-luan">
+                     <a href="{{URL::to('/binh-luan')}}" class="dropdown-toggle" aria-haspopup="true"
+                         aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Quản Lý Bình Luận</a>
+                 </li>
+                 <!-- <li class="menu-item-has-children dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                          aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                      <ul class="sub-menu children dropdown-menu">
                          <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
                          <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                      </ul>
-                 </li>
+                 </li> -->
 
-                <!-- <li class="menu-title">Icons</li> /.menu-title -->
+                 <!-- <li class="menu-title">Icons</li> /.menu-title -->
 
                  <!-- <li class="menu-item-has-children dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"

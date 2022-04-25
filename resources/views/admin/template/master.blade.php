@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
@@ -14,7 +15,7 @@
     <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
   
     @include('admin.template.css')
-    
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -31,7 +32,10 @@
       
     </div>
     @include('admin.template.js')
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- /#right-panel -->
-
+    @yield('javascript')
 </body>
 </html>
