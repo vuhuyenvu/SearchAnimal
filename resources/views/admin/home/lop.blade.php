@@ -160,7 +160,7 @@
                     <div class="card-header">
                         <strong class="card-title">Danh Sách Lớp</strong>
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#themlop"
-                            style="margin-left:80%;">Thêm lớp</button>
+                            style="margin-left:90%;">Thêm lớp</button>
                     </div>
                     <form method="post"  action="{{URL::to('tim-kiem-lop')}}" class="form-horizontal">
                         <div class="row form-group">
@@ -180,7 +180,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table " id="lop">
+                        <table class="table " id="table_lop">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -218,7 +218,7 @@ $(document).ready(() => {
     $('#lop').addClass('active');
 });
 function sua_lop() {
-    var Index, table = document.getElementById('lop');
+    var Index, table = document.getElementById('table_lop');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -229,7 +229,7 @@ function sua_lop() {
 }
 
 function xoa_lop() {
-    var Index, table = document.getElementById('lop');
+    var Index, table = document.getElementById('table_lop');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;

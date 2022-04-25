@@ -1089,7 +1089,7 @@ class AdminController extends Controller
 
         return DataTables::of($ds_dv)
         ->addColumn('dongvatdiadiem',function($ds_dv){
-            return '<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#diadiem" data-role="diadiem" diadiem="'.$ds_dv->dv_ma.'">Xem</button>';
+            return '<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#diadiemdv" data-role="diadiem" diadiem="'.$ds_dv->dv_ma.'">Xem</button>';
         })
         ->addColumn('dongvatsinhcanh',function($ds_dv){
             return '<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#sinhcanh" data-role="sinhcanh" sinhcanh="'.$ds_dv->dv_ma.'">Xem</button>';
@@ -1440,8 +1440,8 @@ class AdminController extends Controller
         $output = "";
         $output .= "<thead>";
         $output .= "<tr>";
-        $output .= "<th>Mã Địa Điểm</th>";
-        $output .= "<th>Tên Địa Điểm</th>";
+        $output .= "<th>Mã Sinh Cảnh</th>";
+        $output .= "<th>Tên Sinh Cảnh</th>";
         $output .= "<th>Hành Động</th>";
         $output .= "</tr>";
         $output .= "</thead>";

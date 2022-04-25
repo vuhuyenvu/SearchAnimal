@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label for="nf-email" class=" form-control-label">Mã Giới</label>
                             <input type="text" id="nf-email" name="gioi_ma" placeholder="Nhập mã giới"
-                                class="form-control" value="" readonly>
+                                class="form-control" value="{{$ma_gioi_moi_nhat}}" readonly>
                         </div>
                         <div class="form-group"><label for="nf-password" class=" form-control-label">Tên Giới</label>
                             <input type="text" id="nf-password" name="gioi_ten" placeholder="Nhập tên giới"
@@ -160,7 +160,7 @@
                     <div class="card-header">
                         <strong class="card-title">Danh Sách Giới</strong>
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#themgioi"
-                            style="margin-left:80%;">Thêm Giới<button>
+                            style="margin-left:90%;">Thêm Giới<button>
                     </div>
                     <form method="post"  action="{{URL::to('tim_kiem_gioi')}}" class="form-horizontal">
                         <div class="row form-group">
@@ -180,7 +180,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table " id="gioi">
+                        <table class="table " id="table_gioi">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -217,7 +217,7 @@ $(document).ready(() => {
     $('#gioi').addClass('active');
 });
 function sua_gioi() {
-    var Index, table = document.getElementById('gioi');
+    var Index, table = document.getElementById('table_gioi');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -228,7 +228,7 @@ function sua_gioi() {
 }
 
 function xoa_gioi() {
-    var Index, table = document.getElementById('gioi');
+    var Index, table = document.getElementById('table_gioi');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;

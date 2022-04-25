@@ -181,7 +181,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table " id="tinhtrangmauvat">
+                        <table class="table " id="table_tinhtrangmauvat">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -220,7 +220,7 @@ $(document).ready(() => {
     $('#tinh-trang-mau-vat').addClass('active');
 });
 function sua_tinhtrangmauvat() {
-    var Index, table = document.getElementById('tinhtrangmauvat');
+    var Index, table = document.getElementById('table_tinhtrangmauvat');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -231,7 +231,7 @@ function sua_tinhtrangmauvat() {
 }
 
 function xoa_tinhtrangmauvat() {
-    var Index, table = document.getElementById('tinhtrangmauvat');
+    var Index, table = document.getElementById('table_tinhtrangmauvat');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;

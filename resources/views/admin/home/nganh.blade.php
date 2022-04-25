@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label for="nf-email" class=" form-control-label">Mã ngành</label>
                             <input type="text" id="nf-email" name="nganh_ma" placeholder="Enter Email.."
-                                class="form-control" value="" readonly>
+                                class="form-control" value="{{$ma_nganh_moi_nhat}}" readonly>
                         </div>
                         <div class="form-group"><label for="nf-password" class=" form-control-label">Tên ngành</label>
                             <input type="text" id="nf-password" name="nganh_ten" placeholder="Nhập tên bộ"
@@ -180,7 +180,7 @@
                         </div>
                     </form>
                     <div class="table-stats order-table ov-h">
-                        <table class="table " id="nganh">
+                        <table class="table " id="table_nganh">
                             <thead>
                                 <tr>
                                     <th class="serial">#</th>
@@ -218,7 +218,7 @@ $(document).ready(() => {
     $('#nganh').addClass('active');
 });
 function sua_nganh() {
-    var Index, table = document.getElementById('nganh');
+    var Index, table = document.getElementById('table_nganh');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
@@ -229,7 +229,7 @@ function sua_nganh() {
 }
 
 function xoa_nganh() {
-    var Index, table = document.getElementById('nganh');
+    var Index, table = document.getElementById('table_nganh');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
             Index = this.rowIndex;
