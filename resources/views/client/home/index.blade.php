@@ -59,7 +59,7 @@
                                        
                                         <h2>Discover cute, wild, and weird animals using the search bar below, or scroll to see popular animal lists!</h2>
                                         <br>
-                                        <a href="#" class="primary-btn">SEE THEM ALL</a>
+                                        <a href="{{route('grid')}}" class="primary-btn">SEE THEM ALL</a>
                                     </div>
                                 </div>
                                 </div>
@@ -78,8 +78,8 @@
                 
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}">
-                            <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
-                        <h5><a href="#">{{$dv->dv_tentiengviet}}</a></h5>
+                            <img style="    width: 240px; height: 174px;}" src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
+                        <h5><a href="{{{route('chi-tiet',['id'=>$dv->dv_ma])}}}">{{$dv->dv_tentiengviet}}</a></h5>
                         </div>
                     </div>
                     @endforeach   
@@ -95,7 +95,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Bird</h2>
+                        <h2>Animals</h2>
                     </div>
                     
                 </div>
@@ -108,11 +108,12 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg">
-                        <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
+                        <img style= " width:290px;
+    height: 170px;" src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
                       
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#">{{$dv->dv_tentiengviet}}</a></h6>
+                            <h6><a href="{{{route('chi-tiet',['id'=>$dv->dv_ma])}}}">{{$dv->dv_tentiengviet}}</a></h6>
                             <h5></h5>
                         </div>
                     </div>
@@ -156,7 +157,8 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
+                            <img style= " width:270px;
+    height: 185px;" src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <!-- <ul>

@@ -50,16 +50,16 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="{{asset('client-template/img/animal/vang-anh-cac-loai-chim.jpg')}}" alt="">
+                                src="{{asset('client-template/img/animal')}}/{{$detail[0]->ha_link}}" alt="">
                         </div>
-                        <div class="product__details__pic__slider owl-carousel">
+                        <!-- <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="{{asset('client-template/img/animal/BIRD1.jpg')}}"
                                 src="{{asset('client-template/img/animal/BIRD1.jpg')}}" alt="">
                             <img data-imgbigurl="{{asset('client-template/img/animal/vang-anh-cac-loai-chim.jpg')}}"
                                 src="{{asset('client-template/img/animal/vang-anh-cac-loai-chim.jpg')}}" alt="">
                             <img data-imgbigurl="{{asset('client-template/img/animal/chim-re-quat-vang.jpg')}}"
                                 src="{{asset('client-template/img/animal/chim-re-quat-vang.jpg')}}" alt="">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="comment">
-                    <!-- <label for="">Bình luận</label> -->
+                    <label for="">Bình luận</label> 
                         
                         <form action="comment/{{$id_user}}" method="post">
                         @csrf
@@ -165,7 +165,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Mới nhất</h2>
+                        <h2>Newest</h2>
                     </div>
                 </div>
             </div>
@@ -173,12 +173,12 @@
                 @foreach($new as $dv)
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{asset('client-template/img/animal/chim-re-quat-vang.jpg')}}">
-                           
+                        <div class="product__item__pic set-bg" data-setbg="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}">
+                           <img src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">{{$dv->dv_tentiengviet}}</a></h6>
-                           
+                            <h6><a href="{{{route('chi-tiet',['id'=>$dv->dv_ma])}}}">{{$dv->dv_tentiengviet}}</a></h6>
+                           <p>{{$dv->dv_tenkhoahoc}}</p>
                         </div>
                     </div>
                 </div>

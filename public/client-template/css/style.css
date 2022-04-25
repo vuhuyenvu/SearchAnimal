@@ -33,7 +33,7 @@
 html,
 body {
 	height: 100%;
-	font-family: "Cairo", sans-serif;
+	font-family: system-ui;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
@@ -1538,7 +1538,7 @@ margin: auto;}
 }
 
 .product__item__pic {
-	height: 270px;
+	height: 154px;
 	position: relative;
 	overflow: hidden;
 }

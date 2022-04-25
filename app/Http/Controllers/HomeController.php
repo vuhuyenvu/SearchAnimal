@@ -69,7 +69,7 @@ class HomeController extends Controller
                                 
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">'.$row->dv_tendiaphuong.'</a></h6>
+                        <h6><a href="http://localhost:8000/detail/'.$row->dv_ma.'">'.$row->dv_tendiaphuong.'</a></h6>
                         <p>'.$row->dv_tenkhoahoc.'</p>
                         
                     </div>
@@ -89,7 +89,7 @@ class HomeController extends Controller
         $dsdv = DB::table('dongvat') ->join('hinhanh', function ($join) {
             $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
                  
-        })->take(6)->get();
+        })->take(8)->get();
         $ds = DB::table('dongvat') ->join('hinhanh', function ($join) {
             $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
                  
@@ -107,6 +107,7 @@ class HomeController extends Controller
      
        
         $gioi = DB::table('dongvat')
+        
         ->join('gioi', function ($join) {
             $join->on('dongvat.dv_gioi', '=', 'gioi.gioi_ma');
                  
@@ -139,8 +140,16 @@ class HomeController extends Controller
                  
         })
         ->get();
-        $ctdv = DB::table('dongvat')->where('dv_ma',$id)->get();
-        $new = DB::table('dongvat')->orderBy('dv_ma','DESC')->take(4)->get();
+         
+        $ctdv = DB::table('dongvat') ->join('hinhanh', function ($join) {
+            $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
+                 
+        })->where('dongvat.dv_ma',$id)->get();
+        
+        $new = DB::table('dongvat') ->join('hinhanh', function ($join) {
+            $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
+                 
+        })->orderBy('dongvat.dv_ma','DESC')->take(4)->get();
        
         return view('client.home.detail',['bo'=>$bo,'ho'=>$ho,'lop'=>$lop,'detail'=>$ctdv,'new'=>$new,'gioi'=>$gioi,'nganh'=>$nganh]);
 

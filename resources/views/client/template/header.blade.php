@@ -84,16 +84,16 @@
                             <li ><a href="{{route('grid')}}">Cagetory</a></li>
                             
                             <li><a href="{{route('respond')}}">Contact</a></li>
-                        @elseif($uri == '/grid')
-                        <li ><a href="{{route('trang-chu')}}">Home</a></li>
-                            <li class="active"><a href="{{route('grid')}}">Cagetory</a></li>
-                            
-                            <li><a href="{{route('respond')}}">Contact</a></li>
-                        @else  
+                        @elseif($uri == '/respond')
                         <li ><a href="{{route('trang-chu')}}">Home</a></li>
                             <li ><a href="{{route('grid')}}">Cagetory</a></li>
                             
-                            <li class="active"><a href="{{route('respond')}}">Contact</a></li>
+                            <li class="active" ><a href="{{route('respond')}}">Contact</a></li>
+                        @else  
+                        <li ><a href="{{route('trang-chu')}}">Home</a></li>
+                            <li class="active"><a href="{{route('grid')}}">Cagetory</a></li>
+                            
+                            <li ><a href="{{route('respond')}}">Contact</a></li>
                           
                             @endif 
                         
