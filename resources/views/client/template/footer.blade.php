@@ -18,9 +18,9 @@
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
-                        <li><a href="#">Home</a></li>
-                            <li><a href="#">Cagetory</a></li>
-                            <li><a href="#">Contact</a></li>
+                        <li><a href="{{route('trang-chu')}}">Home</a></li>
+                            <li><a href="{{route('grid')}}">Cagetory</a></li>
+                            <li><a href="{{route('respond')}}">Contact</a></li>
                             
                         </ul>
                         

@@ -1,26 +1,7 @@
 @extends('client.template.master')
 
 @section('banner')
- <!-- Breadcrumb Section Begin -->
- <section class="breadcrumb-section set-bg" data-setbg="{{asset('client-template/img/breadcrumb.jpg')}}">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                       
-                        <h2></h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html"></a>
-                            <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
+ 
 
 @endsection
 @section('content')
@@ -69,9 +50,8 @@
                        <ul>
                             <li><b>Tên khoa học</b><span>{{$detail[0]->dv_tenkhoahoc}}</span></li>
                             <li><b>Tên địa phương</b><span>{{$detail[0]->dv_tendiaphuong}}</span></li>
-                            <li><b>Tên khoa học</b><span>{{$detail[0]->dv_tenkhoahoc}}</span></li>
-                        </ul>
-                        
+                            <li><b>Tên tiếng việt</b><span>{{$detail[0]->dv_tentiengviet}}</span></li>
+                        </ul>                       
                         
                         <ul>
                             <li><b>Giới</b> <span>{{$gioi[0]->gioi_ten}}</span></li>

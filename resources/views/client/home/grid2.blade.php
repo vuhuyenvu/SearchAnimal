@@ -253,7 +253,7 @@
                                                     
                                         </div>
                                         <div class="product__item__text">
-                                            <h6><a href="{{{route('chi-tiet',['id'=>$dv->dv_ma])}}}">{{$dv->dv_tendiaphuong}}</a></h6>
+                                            <h6><a href="{{{route('chi-tiet',['id'=>$dv->dv_ma])}}}">{{$dv->dv_tentiengviet}}</a></h6>
                                             <p>{{$dv->dv_tenkhoahoc}}</p>
                                             
                                         </div>

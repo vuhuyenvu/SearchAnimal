@@ -46,10 +46,10 @@ class HomeController extends Controller
                 $join->on('dongvat.dv_ma', '=', 'hinhanh.dv_ma');
                      
             })          
-            ->where('dv_tendiaphuong', 'LIKE', "%{$query}%")
+            ->where('dv_tentiengviet', 'LIKE', "%{$query}%")
             ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
             ->orWhere('dv_tendiaphuong', 'LIKE', "%{$query}%")
-            ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
+            // ->orWhere('dv_tenkhoahoc', 'LIKE', "%{$query}%")
           
             
             // ->orWhere('lop_ten', 'LIKE', "%{$query}%")
@@ -69,7 +69,7 @@ class HomeController extends Controller
                                 
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="http://localhost:8000/detail/'.$row->dv_ma.'">'.$row->dv_tendiaphuong.'</a></h6>
+                        <h6><a href="http://localhost:8000/detail/'.$row->dv_ma.'">'.$row->dv_tentiengviet.'</a></h6>
                         <p>'.$row->dv_tenkhoahoc.'</p>
                         
                     </div>

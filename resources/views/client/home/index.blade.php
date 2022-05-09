@@ -70,7 +70,7 @@
 
 @section('content')    
     <!-- Categories Section Begin -->
-    <section class="categories">
+    <!-- <section class="categories">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
@@ -158,7 +158,7 @@
                     <div class="blog__item">
                         <div class="blog__item__pic">
                             <img style= " width:270px;
-    height: 185px;" src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
+    height:205px;" src="{{asset('client-template/img/animal')}}/{{$dv->ha_link}}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <!-- <ul>
