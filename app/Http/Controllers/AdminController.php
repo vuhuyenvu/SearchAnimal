@@ -199,15 +199,15 @@ class AdminController extends Controller
         $tu_khoa = $request->get('timdiadiem');
         if($tu_khoa){
             $ds_diadiem = DB::table('diadiem')
-            ->where('diadiem_ma','like','%'.$tu_khoa.'%')
-            ->orWhere('diadiem_ten','like','%'.$tu_khoa.'%')->get();
+            ->where('dd_ma','like','%'.$tu_khoa.'%')
+            ->orWhere('dd_ten','like','%'.$tu_khoa.'%')->get();
         }
         else{
             $ds_diadiem = DB::table('diadiem')->get();
         }
-        $ma_diadiem_moi_nhat = DB::table('diadiem')->OrderBy('diadiem_ma','desc')->first();
-        $ma_diadiem_moi_nhat->diadiem_ma++;
-        $mana = view('admin.home.diadiem')->with('ds_diadiem',$ds_diadiem)->with('ma_diadiem_moi_nhat',$ma_diadiem_moi_nhat->diadiem_ma);
+        $ma_diadiem_moi_nhat = DB::table('diadiem')->OrderBy('dd_ma','desc')->first();
+        $ma_diadiem_moi_nhat->dd_ma++;
+        $mana = view('admin.home.diadiem')->with('ds_diadiem',$ds_diadiem)->with('ma_diadiem_moi_nhat',$ma_diadiem_moi_nhat->dd_ma);
         return view('admin.template.master')->with('admin.home.diadiem',$mana);
     }
     

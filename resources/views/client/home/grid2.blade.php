@@ -52,6 +52,21 @@
             </div>
         </div>
     </section>
+    <section class="breadcrumb-section set-bg" style="background-color: #7fad39">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Category</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./">Home</a>
+                            <span>Category</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Hero Section End -->
 
     <!-- <section class="breadcrumb-section set-bg" data-setbg="{{asset('client-template/img/breadcrumb.jpg')}}">
